@@ -9,6 +9,7 @@ Existem diversas maneiras e profundidades de solucionar o problema que estamos p
 ## O desafio
 
 Usuários Bradesco realizam diversos pagamentos pix por todo o Brasil, o desafio é fazer uma API em Node Js que cadastre os pagamentos pix e listar os pagamentos pix. Na tela de listagem de pagamento, deve informar a porcentagem que o valor pagamento feito pelo usuario na data dd/mm/yyyy representa  dos valores dos pagamentos totais do mês vigente.
+Construir um micro-service que por sua vez terá um endPoint "/pagamentos" que terá devolverá para o usuário final um payload em JSON contentando dados para pagamento.
 
 ## Input
 
@@ -27,6 +28,7 @@ O cliente tem que ser capaz de ver a listagem de pagamentos com a porcentagem de
 * Chave pix
 * Valor
 * Descrição
+*  Logica de porcentagem dos pagametnos (Ex: aplicar uma regra de porcentagem com base no valor do pagamento pix )
 
 
 ## Alguns pontos cruciais para entrega
