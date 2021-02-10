@@ -41,8 +41,14 @@ O cliente tem que ser capaz de ver a listagem de pagamentos com a porcentagem de
 * Fork e Pull request
 * CRUD completo de pagamentos pix.
 * Testes Unitarios (TDD)
+* Código bem comentado 
 * Facilidade ao rodar o projeto
 * Utilização de padrões de projeto 
 * Utilização de DDD
+
+## Dúvidas do processo ou enviar zip do projeto
+
+Enviar e-mail para  lucas.reis@capgemini.com , kamila.castelano@capgemini.com , vinicius.pascucci@capgemini.com ou  levi.ferreira@capgemini.com.
+
 
 **Happy coding! :-)**
