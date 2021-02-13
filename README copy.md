@@ -8,6 +8,8 @@
 * knex seed:run
 * npm run start
 
+* link da coleção postman: https://www.getpostman.com/collections/595de6558a9d2ebd45dc
+
 ## Descrições
 As configuraçõs de banco de dados, podem ser encontradas no arquivo.env.
 O banco de dados usado neste exemplo foi o mysql ( Talvez seja necessário aplicar o metodo de autenticação nativa)

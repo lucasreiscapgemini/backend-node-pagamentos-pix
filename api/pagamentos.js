@@ -19,6 +19,9 @@ module.exports = app =>{
             .catch(err => res.status(500).send(err))
     }
 
+    /**
+     * Lista os pagamentos passando o mes como parametrô, exemplo: 02
+     */
     const listarPorMes = (req, res) =>{
 
         const { buscarPorcentagens } = app.util.comuns
@@ -67,7 +70,10 @@ module.exports = app =>{
         const { validarPagamento } = app.util.validadores
         const { buscarPorcentagens } = app.util.comuns
         const pagamento = { ...req.body }
+        
         const valid = validarPagamento(pagamento)
+
+
         if(valid.length > 0){
             res.status(400).send(valid)
         }else{
@@ -114,6 +120,9 @@ module.exports = app =>{
 
     }
 
+   /**
+     * Função que lista aqueles pagamentos deletados via softdelete
+     */
     const listarDeletados = (req, res) =>{
         app.db('pagamentos')
                 .where({ deleted_at: null, usuario_id: req.user.id })

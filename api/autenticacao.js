@@ -44,24 +44,19 @@ module.exports = app =>{
      * Criar um usuário para poder fazer as transações pix
      */
     const criarUsuario = (req, res ) =>{
+         
         const dados = { ...req.body }
+       
         const { encriptarSenha } = app.util.comuns
-        if(dados.senha !== dados.confirmarSenha){
-            return res.status(400).send('As senhas não conferem.')
+        const { validarCadastro } = app.util.validadores
+
+        const validacao = validarCadastro(dados)
+        if(!validacao.valido){
+            return res.status(400).send(validacao.msg);
         }
 
         dados.senha = encriptarSenha(dados.senha)
         delete dados.confirmarSenha
-
-        app.db('usuarios')
-            .select('id')
-            .where({ 
-                cpf: dados.cpf
-            }).first()
-            .then( usuario => {
-                console.log(usuario)
-            })
-            .catch(err => res.status(500).send(err))
 
         app.db('usuarios')
             .insert(dados)
