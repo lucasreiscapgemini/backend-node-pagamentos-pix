@@ -17,7 +17,7 @@ Você deve criar API para fazer um CRUD de pagamentos pix utilizando  json.
 
 ## Output
 
-O cliente tem que ser capaz de ver a listagem de pagamentos com a porcentagem de cada pagamento em relação ao mês vigente.
+Receber lista de pagamentos pix com porcentagem de cada pagamento em relação ao valor montante dos pagamentos pix de uma pessoa X e data dd/mm/yyyy
 
 
 ### Dados a serem coletados do pagamento pix :
