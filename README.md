@@ -51,5 +51,6 @@ Receber lista de pagamentos pix com porcentagem de cada pagamento em relação a
 
 Enviar e-mail para  lucas.reis@capgemini.com , kamila.castelano@capgemini.com , vinicius.pascucci@capgemini.com ou  levi.ferreira@capgemini.com.
 
+## Prazo para entrega 48 horas havendo dificuldades entrar em contato
 
 **Happy coding! :-)**
