@@ -7,9 +7,9 @@ Após finalizar o desafio, de preferencia faça um fork do projeto depois pull r
 Existem diversas maneiras e profundidades de solucionar o problema que estamos propondo. Vamos listar algumas sub-tasks que podem guiá-lo(a) em relação a essas possibilidades.
 
 ## O desafio
+Usuários Bradesco realizam diversos pagamentos pix por todo o Brasil, o desafio é fazer uma API em Node Js que persista os pagamentos pix e listar os pagamentos pix. Na listagem dos pagamentos deve informar também a porcentagem de cada pagamento em relação o valor montante mensal dos pagamentos feito pela pessoa  X na data dd/mm/yyyy. 
 
-Usuários Bradesco realizam diversos pagamentos pix por todo o Brasil, o desafio é fazer uma API em Node Js que cadastre os pagamentos pix e listar os pagamentos pix. Na tela de listagem de pagamento, deve informar a porcentagem que o valor pagamento feito pelo usuario na data dd/mm/yyyy representa  dos valores dos pagamentos totais do mês vigente.
-Construir um micro-service que por sua vez terá um endPoint "/pagamentos" que terá devolverá para o usuário final um payload em JSON contentando dados para pagamento.
+Construir um micro-service que por sua vez terá um endPoint "/pagamentos" que  devolverá para o usuário final um payload em JSON contentando dados dos pagamentos.
 
 ## Input
 
@@ -27,13 +27,13 @@ O cliente tem que ser capaz de ver a listagem de pagamentos com a porcentagem de
 * Instituição Bancaria
 * Chave pix
 * Valor
+* Data Pagamento
 * Descrição
-*  Logica de porcentagem dos pagametnos (Ex: aplicar uma regra de porcentagem com base no valor do pagamento pix )
-
+* Logica de porcentagem dos pagametnos (Ex: aplicar uma regra de porcentagem com base no valor do pagamento pix )
 
 ## Alguns pontos cruciais para entrega
 
-* Criação de uma API que seja capaz de receber requesições feitas utilizando json e persistindo esses dados.
+* Criação de uma API que seja capaz de receber requesições feitas utilizando json e persistindo esses dados. (CRUD)
 * Logica da porcentagem dos pagamentos pix
 
 ## Alguns pontos que serão bonús:
@@ -41,7 +41,6 @@ O cliente tem que ser capaz de ver a listagem de pagamentos com a porcentagem de
 * Organização do código 
 * Organização do repositorio remoto
 * Fork e Pull request
-* CRUD completo de pagamentos pix.
 * Testes Unitarios (TDD)
 * Código bem comentado 
 * Facilidade ao rodar o projeto
