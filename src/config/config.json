@@ -1,0 +1,44 @@
+{
+  "development": {
+    "username": "postgres",
+    "password": "8f8cab2aac464df3aca0b58c0e3759a8",
+    "database": "pix_development",
+    "host": "127.0.0.1",
+    "dialect": "postgres",
+    "operatorAliases": false,
+    "logging": false,
+    "define": {
+      "timestamps": true,
+      "underscored": true,
+      "underscoredAll": true
+    }
+  },
+  "test": {
+    "username": "postgres",
+    "password": "8f8cab2aac464df3aca0b58c0e3759a8",
+    "database": "pix_test",
+    "host": "127.0.0.1",
+    "dialect": "postgres",
+    "operatorAliases": false,
+    "logging": false,
+    "define": {
+      "timestamps": true,
+      "underscored": true,
+      "underscoredAll": true
+    }
+  },
+  "production": {
+    "username": "postgres",
+    "password": "8f8cab2aac464df3aca0b58c0e3759a8",
+    "database": "pix_production",
+    "host": "127.0.0.1",
+    "dialect": "postgres",
+    "operatorAliases": false,
+    "logging": false,
+    "define": {
+      "timestamps": true,
+      "underscored": true,
+      "underscoredAll": true
+    }
+  }
+}
