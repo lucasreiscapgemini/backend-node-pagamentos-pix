@@ -1,0 +1,12 @@
+{
+  "name": "backend-node-pagamentos-pix",
+  "version": "1.0.0",
+  "description": "Api que persista os pagamentos pix e listar os pagamentos pix",
+  "main": "index.js",
+  "repository": "git@github.com:ednilsonmcs/backend-node-pagamentos-pix.git",
+  "author": "ednilsonmcs <ednilsonmcs@gmail.com>",
+  "license": "MIT",
+  "dependencies": {
+    "express": "^4.17.1"
+  }
+}
