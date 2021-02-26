@@ -7,15 +7,25 @@
   "author": "ednilsonmcs <ednilsonmcs@gmail.com>",
   "license": "MIT",
   "scripts": {
-    "start": "nodemon src/server.js"
+    "start": "node src/server.js",
+    "dev": "set NODE_ENV=development && nodemon src/server.js --ignore __tests__",
+    "pretest": "set NODE_ENV=test && yarn sequelize db:migrate",
+    "test": "set NODE_ENV=test && jest",
+    "postest": "set NODE_ENV=test && yarn sequelize db:migrate:undo:all"
   },
   "dependencies": {
+    "dotenv": "^8.2.0",
     "express": "^4.17.1",
     "pg": "^8.5.1",
     "sequelize": "^6.5.0"
   },
   "devDependencies": {
+    "factory-girl": "^5.0.4",
+    "faker": "^5.4.0",
+    "jest": "^26.6.3",
     "nodemon": "^2.0.7",
-    "sequelize-cli": "^6.2.0"
+    "sequelize-cli": "^6.2.0",
+    "sqlite3": "^5.0.2",
+    "supertest": "^6.1.3"
   }
 }
