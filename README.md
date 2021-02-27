@@ -14,10 +14,11 @@ Esta API foi criada utilizando algumas orientações do padrão arquitetural em 
 * Variáveis de ambiente
 + .env
 ```text
-DB_HOST=127.0.0.1
-DB_USER=postgres
-DB_PASS=8f8cab2aac464df3aca0b58c0e3759a8
-DB_NAME=pix_development
+DB_HOST=ec2-35-171-57-132.compute-1.amazonaws.com
+DB_USER=aouhnshqyjbjsx
+DB_PASS=0f8b9623567cb9db5ce16826fc9d9f49c729f4d5a4cf808daf5d408df36f7462
+DB_NAME=d6j5oihm5lbkk3
+NODE_TLS_REJECT_UNAUTHORIZED=0
 ```
 + .env.test
 ```text
