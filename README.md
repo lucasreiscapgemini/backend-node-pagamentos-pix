@@ -1,56 +1,182 @@
 # Capgemini - Desafio Backend | Node Js
 
-Olá! Esse desafio técnico tem como propósito medir suas habilidades, ver como estuda, pensa e se organiza na prática. Utilizando Node Js a forma de persistencia de dados é de sua escolha.
+## Descrição
 
-Após finalizar o desafio, de preferencia faça um fork do projeto depois pull request, nos envie um link para repositório do projeto ou um zip com o código o que se sentir mais confortavel.
+Esta API foi criada utilizando algumas orientações do padrão arquitetural em camadas Model-View-Controller (MVC). Como metodologia foi adotado o Densenvolvimento Orientado a Testes.
+## Pré requisitos mínimos
 
-Existem diversas maneiras e profundidades de solucionar o problema que estamos propondo. Vamos listar algumas sub-tasks que podem guiá-lo(a) em relação a essas possibilidades.
+* Node.js v14.15.1
 
-## O desafio
-Usuários Bradesco realizam diversos pagamentos pix por todo o Brasil, o desafio é fazer uma API em Node Js que persista os pagamentos pix e listar os pagamentos pix. Na listagem dos pagamentos deve informar também a porcentagem de cada pagamento em relação o valor montante mensal dos pagamentos feito pela pessoa  X na data dd/mm/yyyy. 
+## Setup
+* *Instale as dependências:* `` yarn install``
+* *Com o CLI do ORM (Sequelize) crie o banco e execute as migrations:* ``yarn sequelize db:migrate``
+* Variáveis de ambiente
++ .env
+```text
+DB_HOST=ec2-35-171-57-132.compute-1.amazonaws.com
+DB_USER=aouhnshqyjbjsx
+DB_PASS=0f8b9623567cb9db5ce16826fc9d9f49c729f4d5a4cf808daf5d408df36f7462
+DB_NAME=d6j5oihm5lbkk3
+NODE_TLS_REJECT_UNAUTHORIZED=0
+```
++ .env.test
+```text
+DB_DIALECT=sqlite
+```
 
-Construir um micro-service que por sua vez terá um endPoint "/pagamentos" que  devolverá para o usuário final um payload em JSON contentando dados dos pagamentos.
+## Testes
+* *Execute o seguinte comando para rodar os testes:* `` yarn test ``
 
-## Input
+## Testes
+* *Execute o seguinte comando para rodar os testes:* `` yarn dev ``
+*  !!! Caso a aplicação esteja rodado em um sistema operacional osx remova os prefixos SET no package.json
 
-Você deve criar API para fazer um CRUD de pagamentos pix utilizando  json. 
-
-## Output
-
-Receber lista de pagamentos pix com porcentagem de cada pagamento em relação ao valor montante dos pagamentos pix de uma pessoa X e data dd/mm/yyyy
+## Rotas da Aplicação
+### Registro de pagamentos [POST: /pagamento]
 
 
-### Dados a serem coletados do pagamento pix :
+| Parâmetro | Descrição |
+|---|---|
+| `nome_destinatario` | Nome do beneficiário. |
+| `cpf` | CPF do beneficiário. |
+| `institucao_bancaria` | Instituição bancária da conta do beneficiário |
+| `chave_pix` | Chave PIX da conta do beneficiário. |
+| `valor` | Valor a ser pago. |
+| `descricao` | Descrição do pagamento. |
 
-* Nome destinatario
-* CPF
-* Instituição Bancaria
-* Chave pix
-* Valor
-* Data Pagamento
-* Descrição
-* Logica de porcentagem dos pagametnos (Ex: aplicar uma regra de porcentagem com base no valor do pagamento pix )
++ Request (application/json)
 
-## Alguns pontos cruciais para entrega
+    + Body
 
-* Criação de uma API que seja capaz de receber requesições feitas utilizando json e persistindo esses dados. (CRUD)
-* Logica da porcentagem dos pagamentos pix
+            { 
+                "nome_destinatario": "Ednilson Messias",
+                "cpf": "05426083592",
+                "institucao_bancaria": "Bradesco",
+                "chave_pix": "79999627074",
+                "valor": "700.00",
+                "descricao": "Cadeira Escritório"
+            }
 
-## Alguns pontos que serão bonús:
++ Response 200 (application/json)
 
-* Organização do código 
-* Organização do repositorio remoto
-* Fork e Pull request
-* Testes Unitarios (TDD)
-* Código bem comentado 
-* Facilidade ao rodar o projeto
-* Utilização de padrões de projeto 
-* Utilização de DDD
+    + Body
 
-## Dúvidas do processo ou enviar zip do projeto
+            {
+              "message": "Pagamento realizado com sucesso!"
+            }
 
-Enviar e-mail para  lucas.reis@capgemini.com , kamila.castelano@capgemini.com , vinicius.pascucci@capgemini.com ou  levi.ferreira@capgemini.com.
+### Deleção de pagamentos [DEL: /pagamento/:id]
 
-## Prazo para entrega 48 horas havendo dificuldades entrar em contato
 
-**Happy coding! :-)**
+* Parâmetros
+    + id: Identificador do pagamento
+
++ Response 200 (application/json)
+
+    + Body
+
+            {
+              "message": "Pagamento deletado com sucesso!"
+            }
+
+### Atualização de pagamentos [PATCH: /pagamento/:id]
+Nessa rota pode, por estar usando o método PATCH, um ou todos atributos podem ser fornecidos para atualização. 
+
+| Parâmetro | Descrição |
+|---|---|
+| `nome_destinatario` | Nome do beneficiário. |
+| `cpf` | do beneficiário. |
+| `institucao_bancaria` | Instituição bancária da conta do beneficiário |
+| `chave_pix` | Chave PIX da conta do beneficiário. |
+| `valor` | Valor a ser pago. |
+| `descricao` | Descrição do pagamento. |
+
++ Request (application/json)
+
+    + Body
+
+            { 
+                "nome_destinatario": "Ednilson Messias",
+                "cpf": "05426083592",
+                "institucao_bancaria": "Bradesco",
+                "chave_pix": "79999627074",
+                "valor": "700.00",
+                "descricao": "Cadeira Escritório"
+            }
+
++ Response 200 (application/json)
+
+    + Body
+
+            {
+              "message": "Pagamento atualizado com sucesso!"
+            }
+            
+### Consulta de pagamentos por id [GET: /pagamento/:id]
+
+
+* Parâmetros
+    + id: Identificador do pagamento
+
++ Response 200 (application/json)
+
+    + Body
+
+            {
+              "id": 2,
+              "nome_destinatario": "Ednilson Messias",
+              "cpf": "05426083592",
+              "institucao_bancaria": "Bradesco",
+              "chave_pix": "79999627074",
+              "valor": 1300,
+              "data_pagamento": "2021-02-26T19:41:21.487Z",
+              "descricao": "Cadeira Gammer",
+              "createdAt": "2021-02-26T19:52:03.428Z",
+              "updatedAt": "2021-02-26T19:52:03.428Z"
+            }
+            
+### Consulta de pagamentos pix com porcentagem de cada pagamento [GET: /pagamento/:chave_pix/:data]
+
+
+* Parâmetros
+    + chave_pix: chave pix cadastrada
+    + data: data em que o pagamento foi feito em formato americano (Ex.: 2021-02-26) 
+
++ Response 200 (application/json)
+
+    + Body
+
+            {
+              "pagamentos": [
+                {
+                  "nome_destinatario": "Ednilson Messias",
+                  "cpf": "05426083592",
+                  "institucao_bancaria": "Bradesco",
+                  "chave_pix": "79999627074",
+                  "valor": 700,
+                  "data_pagamento": "2021-02-26T19:41:21.487Z",
+                  "descricao": "Cadeira Escritório",
+                  "porcentagem": 50.90909090909091
+                },
+                {
+                  "nome_destinatario": "Ednilson Messias",
+                  "cpf": "05426083592",
+                  "institucao_bancaria": "Bradesco",
+                  "chave_pix": "79999627074",
+                  "valor": 300,
+                  "data_pagamento": "2021-02-26T19:41:21.487Z",
+                  "descricao": "Cadeira Gammer",
+                  "porcentagem": 21.818181818181817
+                },
+                {
+                  "nome_destinatario": "Ednilson Messias",
+                  "cpf": "05426083592",
+                  "institucao_bancaria": "Bradesco",
+                  "chave_pix": "79999627074",
+                  "valor": 375,
+                  "data_pagamento": "2021-02-26T19:41:21.487Z",
+                  "descricao": "Teclado Mecânico",
+                  "porcentagem": 27.272727272727273
+                }
+              ]
+            }           
