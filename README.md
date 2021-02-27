@@ -6,11 +6,10 @@ Esta API foi criada utilizando algumas orientações do padrão arquitetural em 
 ## Pré requisitos mínimos
 
 * Node.js v14.15.1
-* PostgreSQL 13.1
 
 ## Setup
 * *Instale as dependências:* `` yarn install``
-* *Com o CLI do ORM (Sequelize) crie o banco e execute as migrations:* `` yarn sequelize db:create && yarn sequelize db:migrate``
+* *Com o CLI do ORM (Sequelize) crie o banco e execute as migrations:* ``yarn sequelize db:migrate``
 * Variáveis de ambiente
 + .env
 ```text
@@ -28,6 +27,9 @@ DB_DIALECT=sqlite
 ## Testes
 * *Execute o seguinte comando para rodar os testes:* `` yarn test ``
 
+## Testes
+* *Execute o seguinte comando para rodar os testes:* `` yarn dev ``
+*  !!! Caso a aplicação esteja rodado em um sistema operacional osx remova os prefixos SET no package.json
 
 ## Rotas da Aplicação
 ### Registro de pagamentos [POST: /pagamento]
